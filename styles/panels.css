@@ -16,6 +16,8 @@
   position: relative;
   overflow: auto;
   background-color: var(--secondary-color);
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .preview-panel {

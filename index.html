@@ -3,15 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/root.css" />
-    <link rel="stylesheet" href="styles/header.css" />
-    <link rel="stylesheet" href="styles/panels.css" />
-    <link rel="stylesheet" href="styles/button.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>2D Game Engine UI</title>
+
+    <link rel="stylesheet" href="styles/root.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/panels.css" />
+    <link rel="stylesheet" href="styles/button.css" />
+    <link rel="stylesheet" href="styles/jstree.min.css" />
+    <link rel="stylesheet" href="styles/assets.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
+
+    <title>GameLabs JS</title>
   </head>
   <body>
     <header class="header">
@@ -47,17 +53,35 @@
         </button>
       </nav>
     </header>
-
     <div class="container">
       <div class="left-container">
         <div class="preview-panel">Preview Panel</div>
         <div class="assets-panel">
-          <div class="folders-section"></div>
-          <div class="assets-section"></div>
+          <div class="folders-section"><div id="file-tree"></div></div>
+          <div class="assets-section">
+            <div class="filepath-section">
+              <p id="filepath-display"></p>
+            </div>
+            <div class="content-section">
+              <div class="folder-item new-folder" id="new-folder">
+                <div class="folder-icon">+</div>
+                <p>New Folder</p>
+              </div>
+              <div class="folder-item add-item" id="add-file">
+                <div class="folder-icon">+</div>
+                <p>Add File</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="right-panel">Right Panel</div>
     </div>
+    <script src="js/dom.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/project.js"></script>
+    <script src="js/tree.js"></script>
+    <script src="js/asset-panel.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

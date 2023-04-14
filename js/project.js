@@ -1,0 +1,1 @@
+let projectName = "New Project";
