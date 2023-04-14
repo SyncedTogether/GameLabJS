@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles/button.css" />
     <link rel="stylesheet" href="styles/jstree.min.css" />
     <link rel="stylesheet" href="styles/assets.css" />
+    <link rel="stylesheet" href="styles/preview.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
 
@@ -31,31 +32,41 @@
       </nav>
       <nav class="nav-right">
         <button class="nav-button">
-          <img src="imgs/cursor.png" alt="Play Icon" class="icon" />
-        </button>
-        <button class="nav-button">
-          <img src="imgs/pan.png" alt="Play Icon" class="icon" />
-        </button>
-        <button class="nav-button">
-          <img src="imgs/zoom.png" alt="Play Icon" class="icon" />
-        </button>
-        <button class="nav-button">
           <img src="imgs/undo.png" alt="Play Icon" class="icon" />
         </button>
         <button class="nav-button">
           <img src="imgs/redo.png" alt="Play Icon" class="icon" />
         </button>
-        <button class="nav-button">
-          <img src="imgs/scale.png" alt="Play Icon" class="icon" />
-        </button>
-        <button class="nav-button">
-          <img src="imgs/rotate.png" alt="Play Icon" class="icon" />
-        </button>
       </nav>
     </header>
     <div class="container">
       <div class="left-container">
-        <div class="preview-panel">Preview Panel</div>
+        <div class="preview-panel">
+          <div class="preview-toolbar">
+            <!-- Toolbar buttons -->
+            <button class="icon-btn" id="select-btn">
+              <img src="imgs/cursor.png" alt="Play Icon" class="icon" />
+            </button>
+            <button class="icon-btn" id="pan-btn">
+              <img src="imgs/pan.png" alt="Play Icon" class="icon" />
+            </button>
+            <button class="icon-btn" id="zoom-btn">
+              <img src="imgs/zoom.png" alt="Play Icon" class="icon" />
+            </button>
+            <button class="icon-btn" id="scale-btn">
+              <img src="imgs/scale.png" alt="Play Icon" class="icon" />
+            </button>
+            <button class="icon-btn" id="rotate-btn">
+              <img src="imgs/rotate.png" alt="Play Icon" class="icon" />
+            </button>
+            <button id="toggle-grid">Toggle Grid</button>
+            <button id="toggle-properties">Toggle Properties</button>
+          </div>
+          <canvas id="preview-canvas"></canvas>
+          <div class="properties-panel">
+            <!-- ! Properties panel content -->
+          </div>
+        </div>
         <div class="assets-panel">
           <div class="folders-section"><div id="file-tree"></div></div>
           <div class="assets-section">
@@ -78,10 +89,12 @@
       <div class="right-panel">Right Panel</div>
     </div>
     <script src="js/dom.js"></script>
+    <script src="js/const.js"></script>
     <script src="js/main.js"></script>
     <script src="js/project.js"></script>
     <script src="js/tree.js"></script>
     <script src="js/asset-panel.js"></script>
+    <script src="js/canvas-panel.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

@@ -1,0 +1,12 @@
+.preview-toolbar button img {
+  height: 14px;
+  /* center */
+  position: relative;
+  top: 50%;
+  transform: translateY(12.5%);
+}
+
+.icon-btn {
+  padding: 5px;
+  margin: 5px;
+}
