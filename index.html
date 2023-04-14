@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/root.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/panels.css" />
+    <link rel="stylesheet" href="styles/button.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
@@ -11,11 +14,47 @@
     <title>2D Game Engine UI</title>
   </head>
   <body>
-    <header class="header">Header</header>
+    <header class="header">
+      <nav class="nav-left">
+        <img src="imgs/GameLabsJSLogo.png" alt="GameLabsJS Logo" class="logo" />
+        <h1 class="title">GameLabsJS</h1>
+        <button class="nav-button">Home</button>
+        <button class="nav-button">New Project</button>
+        <button class="nav-button">Save Project</button>
+        <button class="nav-button">Project Settings</button>
+      </nav>
+      <nav class="nav-right">
+        <button class="nav-button">
+          <img src="imgs/cursor.png" alt="Play Icon" class="icon" />
+        </button>
+        <button class="nav-button">
+          <img src="imgs/pan.png" alt="Play Icon" class="icon" />
+        </button>
+        <button class="nav-button">
+          <img src="imgs/zoom.png" alt="Play Icon" class="icon" />
+        </button>
+        <button class="nav-button">
+          <img src="imgs/undo.png" alt="Play Icon" class="icon" />
+        </button>
+        <button class="nav-button">
+          <img src="imgs/redo.png" alt="Play Icon" class="icon" />
+        </button>
+        <button class="nav-button">
+          <img src="imgs/scale.png" alt="Play Icon" class="icon" />
+        </button>
+        <button class="nav-button">
+          <img src="imgs/rotate.png" alt="Play Icon" class="icon" />
+        </button>
+      </nav>
+    </header>
+
     <div class="container">
       <div class="left-container">
         <div class="preview-panel">Preview Panel</div>
-        <div class="assets-panel">Assets Panel</div>
+        <div class="assets-panel">
+          <div class="folders-section"></div>
+          <div class="assets-section"></div>
+        </div>
       </div>
       <div class="right-panel">Right Panel</div>
     </div>

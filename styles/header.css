@@ -1,0 +1,38 @@
+.header {
+  background-color: var(--third-color);
+  padding: 10px;
+  border-bottom: var(--border-width) solid var(--border-color);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+}
+
+.logo {
+  height: 34px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.title {
+  font-size: 1.5em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+
+.icon {
+  height: 20px;
+}
