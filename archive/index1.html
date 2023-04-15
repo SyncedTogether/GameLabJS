@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/root.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/panels.css" />
+    <link rel="stylesheet" href="styles/button.css" />
+    <link rel="stylesheet" href="styles/jstree.min.css" />
+    <link rel="stylesheet" href="styles/assets.css" />
+    <link rel="stylesheet" href="styles/preview.css" />
+    <link rel="stylesheet" href="styles/editor.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
+    <link
+      rel="stylesheet"
+      data-name="vs/editor/editor.main"
+      href="../node_modules/monaco-editor/min/vs/editor/editor.main.css"
+    />
+
+    <title>GameLabs JS</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav-left">
+        <img src="imgs/GameLabsJSLogo.png" alt="GameLabsJS Logo" class="logo" />
+        <h1 class="title">GameLabsJS</h1>
+        <button class="nav-button">Home</button>
+        <button class="nav-button">New Project</button>
+        <button class="nav-button">Save Project</button>
+        <button class="nav-button">Project Settings</button>
+      </nav>
+      <nav class="nav-right">
+        <button class="nav-button">
+          <img src="imgs/undo.png" alt="Play Icon" class="icon" />
+        </button>
+        <button class="nav-button">
+          <img src="imgs/redo.png" alt="Play Icon" class="icon" />
+        </button>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="left-container">
+        <div class="preview-panel">
+          <div class="preview-toolbar">
+            <!-- Toolbar buttons -->
+            <button class="icon-btn" id="select-btn">
+              <img src="imgs/cursor.png" alt="Play Icon" class="icon" />
+            </button>
+            <button class="icon-btn" id="pan-btn">
+              <img src="imgs/pan.png" alt="Play Icon" class="icon" />
+            </button>
+            <button class="icon-btn" id="zoom-btn">
+              <img src="imgs/zoom.png" alt="Play Icon" class="icon" />
+            </button>
+            <button class="icon-btn" id="scale-btn">
+              <img src="imgs/scale.png" alt="Play Icon" class="icon" />
+            </button>
+            <button class="icon-btn" id="rotate-btn">
+              <img src="imgs/rotate.png" alt="Play Icon" class="icon" />
+            </button>
+            <button id="toggle-grid">Toggle Grid</button>
+            <button id="toggle-properties">Toggle Properties</button>
+          </div>
+          <!-- <img src="imgs/bg.png" alt="Preview" class="bg" /> -->
+          <canvas id="preview-canvas"></canvas>
+          <div class="properties-panel">
+            <!-- ! Properties panel content -->
+          </div>
+        </div>
+        <div class="assets-panel">
+          <div class="folders-section"><div id="file-tree"></div></div>
+          <div class="assets-section">
+            <div class="filepath-section">
+              <p id="filepath-display"></p>
+            </div>
+            <div class="content-section">
+              <div class="folder-item new-folder" id="new-folder">
+                <div class="folder-icon">+</div>
+                <p>New Folder</p>
+              </div>
+              <div class="folder-item add-item" id="add-file">
+                <div class="folder-icon">+</div>
+                <p>Add File</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-panel">
+        <div id="editor"></div>
+      </div>
+    </div>
+    <script src="js/rq.js"></script>
+    <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
+    <script src="../node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+    <script src="../node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
+    <script src="js/dom.js"></script>
+    <script src="js/const.js"></script>
+    <script src="js/asset-panel.js"></script>
+    <script src="js/canvas-panel.js"></script>
+    <script src="js/editor-panel.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/project.js"></script>
+    <script src="js/tree.js"></script>
+  </body>
+</html>

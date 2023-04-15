@@ -1,0 +1,21 @@
+button {
+  background-color: var(--button-color);
+  color: var(--foreground-color);
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 2px dotted var(--border-color);
+  cursor: pointer;
+  transition: ease-in-out 0.15s;
+}
+
+button:hover {
+  background-color: var(--button-hover-color);
+}
+
+button:active {
+  background-color: var(--button-active-color);
+}
