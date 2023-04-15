@@ -1,55 +1,16 @@
-.assets-section .filepath-section {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: var(--third-color);
-  border-bottom: var(--border-width) solid var(--border-color);
-}
-
-.assets-section .filepath-section p {
-  margin: 0;
-  padding: 0;
-}
-
-.content-section {
+.grid-container {
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  grid-gap: 10px;
-  padding: 10px;
+  grid-template-columns: 1fr 3fr;
+}
+
+.grid-child {
+  padding: 5px;
   overflow: auto;
 }
 
-.folder-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  cursor: pointer;
-  aspect-ratio: 1/1;
-  transition: ease-in-out 0.1s;
-}
-
-.folder-item:hover {
-  background-color: var(--button-hover-color);
-}
-
-.folder-item:active {
-  background-color: var(--button-active-color);
-}
-
-.folder-icon {
-  font-size: 2em;
-  margin-bottom: 5px;
-}
-
-.new-folder,
-.add-item {
+#folder-panel {
   background-color: var(--third-color);
+  border-right: var(--border-width) solid var(--border-color);
 }

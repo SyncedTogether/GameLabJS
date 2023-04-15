@@ -66,23 +66,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // * Asset Panel Component
   myLayout.registerComponent("assetPanel", function (container, state) {
-    container.getElement().html(`<div class="panel-content"><div class="folders-section"><div id="file-tree"></div></div>
-      <div class="assets-section">
-        <div class="filepath-section">
-          <p id="filepath-display"></p>
-        </div>
-        <div class="content-section">
-          <div class="folder-item new-folder" id="new-folder">
-            <div class="folder-icon">+</div>
-            <p>New Folder</p>
-          </div>
-          <div class="folder-item add-item" id="add-file">
-            <div class="folder-icon">+</div>
-            <p>Add File</p>
-          </div>
-        </div>
-      </div>
-    </div></div>`);
+    container.getElement().html(`
+    <div class="grid-container">
+    <div class="grid-child" id="folder-panel">
+        <div id="file-tree"></div>
+    </div>
+    <div class="grid-child">
+        Grid Column 2
+    </div>
+    </div>
+    `);
   });
 
   // * Code Panel Component
