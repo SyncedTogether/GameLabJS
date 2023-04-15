@@ -4,7 +4,7 @@ Welcome to GameLabsJS, an open-source JavaScript game engine designed to make yo
 
 ![GameLabsJS Banner](assets/banner.png)
 
-## 📙git clone https://github.com/yourusername/GameLabsJS.git Features
+## 📙git clone https://github.com/SyncedTogether/GameLabsJS.git Features
 
 - **Easy Scene Setup:** Set up scenes with minimal effort using our intuitive API.
 - **Drag & Drop Assets:** Import your assets effortlessly and integrate them into your game.
@@ -15,7 +15,7 @@ Welcome to GameLabsJS, an open-source JavaScript game engine designed to make yo
 ## 🎓 Getting Started
 
 1. Clone this repository:
-git clone https://github.com/yourusername/GameLabsJS.git
+git clone https://github.com/SyncedTogether/GameLabsJS.git
 2. Install the dependencies:
 3. Run the example project:
 node app.js (will be changed to npm start in future versions)
