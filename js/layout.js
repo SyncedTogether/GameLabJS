@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
   myLayout.registerComponent("codePanel", function (container, state) {
     container
       .getElement()
-      .html('<div class="panel-content">Code Panel Content</div>');
+      .html(`<div class="panel-content"><div id="monaco-editor"></div></div>`);
   });
 
   myLayout.init();

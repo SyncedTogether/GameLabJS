@@ -33,7 +33,6 @@ function displayFolderContents(node) {
 
 // Creates a new folder in the file tree
 function createNewFolder() {
-  console.log("Creating new folder");
   var parentNode = $("#file-tree").jstree("get_selected", true)[0];
   if (!parentNode) {
     alert("Please select a folder in the tree before creating a new folder.");
