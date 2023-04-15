@@ -4,8 +4,11 @@ Welcome to GameLabsJS, an open-source JavaScript game engine designed to make yo
 
 ![GameLabsJS Banner](assets/banner.png)
 
-(WIP) Please keep in mind that this README is a WIP and a lot of the links and instructions will not work!
-## 📙git clone https://github.com/SyncedTogether/GameLabsJS.git Features
+(WIP) Please keep in mind that this README is a WIP and a lot of the links and instructions will not work!\
+
+git clone https://github.com/SyncedTogether/GameLabsJS.git
+
+## 📙 Features
 
 - **Easy Scene Setup:** Set up scenes with minimal effort using our intuitive API.
 - **Drag & Drop Assets:** Import your assets effortlessly and integrate them into your game.
