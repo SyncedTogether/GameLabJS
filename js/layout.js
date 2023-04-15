@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         </div>
       </div>
-    </div>t</div>`);
+    </div></div>`);
   });
 
   // * Code Panel Component
