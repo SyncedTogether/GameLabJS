@@ -6,7 +6,6 @@ Welcome to GameLabsJS, an open-source JavaScript game engine designed to make yo
 
 (WIP) Please keep in mind that this README is a WIP and a lot of the links and instructions will not work!\
 
-git clone https://github.com/SyncedTogether/GameLabsJS.git
 
 ## 📙 Features
 
@@ -19,8 +18,8 @@ git clone https://github.com/SyncedTogether/GameLabsJS.git
 ## 🎓 Getting Started
 
 1. Clone this repository:
-git clone https://github.com/SyncedTogether/GameLabsJS.git
-2. Install the dependencies:
+git clone https://github.com/SyncedTogether/GameLabJS
+2. Install the prerequisite: Node.js
 3. Run the example project:
 node app.js (will be changed to npm start in future versions)
 
