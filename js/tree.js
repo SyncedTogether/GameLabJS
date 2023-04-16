@@ -67,24 +67,26 @@ $(function () {
       },
     },
   });
-});
 
-$("#file-tree").on("ready.jstree", function (e, data) {
-  // Find the root folder named "Root"
-  var rootNode = data.instance.get_node("#").children.find(function (childId) {
-    var childNode = data.instance.get_node(childId);
-    return childNode.text === "Root";
+  $("#file-tree").on("ready.jstree", function (e, data) {
+    // Find the root folder named "Root"
+    var rootNode = data.instance
+      .get_node("#")
+      .children.find(function (childId) {
+        var childNode = data.instance.get_node(childId);
+        return childNode.text === "Root";
+      });
+
+    // Select the root folder
+    if (rootNode) {
+      data.instance.select_node(rootNode);
+    }
   });
 
-  // Select the root folder
-  if (rootNode) {
-    data.instance.select_node(rootNode);
-  }
-});
-
-$("#file-tree").on("changed.jstree", function (e, data) {
-  if (data.selected.length) {
-    filePath = data.instance.get_path(data.selected[0], "/");
-    updateFilePath();
-  }
+  $("#file-tree").on("changed.jstree", function (e, data) {
+    if (data.selected.length) {
+      filePath = data.instance.get_path(data.selected[0], "/");
+      updateFilePath();
+    }
+  });
 });

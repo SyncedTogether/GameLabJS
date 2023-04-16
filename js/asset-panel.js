@@ -1,6 +1,6 @@
 // Updates the file path display in the asset panel to start with the project name and continue with the file path
 function updateFilePath() {
-  filePathDisplay.textContent = projectName + ":/" + filePath;
+  pFilePath.textContent = projectName + ":/" + filePath;
 }
 
 // Displays the contents of a folder in the asset panel by adding a new folder and add file button and then adding a folder item for each child of the folder

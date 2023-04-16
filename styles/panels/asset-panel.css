@@ -6,11 +6,31 @@
 }
 
 .grid-child {
-  padding: 5px;
   overflow: auto;
 }
 
 #folder-panel {
   background-color: var(--third-color);
   border-right: var(--border-width) solid var(--border-color);
+}
+
+.sub-grid-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 14fr;
+}
+
+.grid-child {
+  overflow: auto;
+}
+
+#file-path-container {
+  background-color: var(--third-color);
+  border-bottom: var(--border-width) solid var(--border-color);
+  text-align: left;
+}
+
+#file-path {
+  margin-left: 10px;
 }

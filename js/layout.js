@@ -72,7 +72,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <div id="file-tree"></div>
     </div>
     <div class="grid-child">
-        Grid Column 2
+      <div class="sub-grid-container">
+        <div id="file-path-container">
+          <p id="file-path"></p>
+        </div>
+      </div>
     </div>
     </div>
     `);
@@ -83,6 +87,10 @@ document.addEventListener("DOMContentLoaded", function () {
     container
       .getElement()
       .html(`<div class="panel-content"><div id="monaco-editor"></div></div>`);
+  });
+
+  myLayout.on("initialised", function () {
+    StaggeredDOMInit();
   });
 
   myLayout.init();
