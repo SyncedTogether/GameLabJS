@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div id="file-path-container">
           <p id="file-path"></p>
         </div>
+        <div id="content-section"></div>
       </div>
     </div>
     </div>

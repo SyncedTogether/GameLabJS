@@ -5,7 +5,7 @@ function updateFilePath() {
 
 // Displays the contents of a folder in the asset panel by adding a new folder and add file button and then adding a folder item for each child of the folder
 function displayFolderContents(node) {
-  var contentSection = $(".content-section");
+  var contentSection = $("#content-section");
 
   contentSection.empty();
 
@@ -23,11 +23,11 @@ function displayFolderContents(node) {
   node.children.forEach(function (childId) {
     var childNode = $("#file-tree").jstree(true).get_node(childId);
     contentSection.append(`
-          <div class="folder-item" data-id="${childId}">
-            <div class="folder-icon">${childNode.icon}</div>
-            <p>${childNode.text}</p>
-          </div>
-        `);
+      <div class="folder-item" data-id="${childId}">
+        <div class="folder-icon">${childNode.icon}</div>
+        <p>${childNode.text}</p>
+      </div>
+    `);
   });
 }
 

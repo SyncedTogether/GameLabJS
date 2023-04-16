@@ -87,6 +87,9 @@ $(function () {
     if (data.selected.length) {
       filePath = data.instance.get_path(data.selected[0], "/");
       updateFilePath();
+
+      var selectedNode = data.instance.get_node(data.selected[0]);
+      displayFolderContents(selectedNode);
     }
   });
 });

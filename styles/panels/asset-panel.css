@@ -1,3 +1,4 @@
+/* Main Grid */
 .grid-container {
   width: 100%;
   height: 100%;
@@ -9,11 +10,13 @@
   overflow: auto;
 }
 
+/* JS TREE */
 #folder-panel {
   background-color: var(--third-color);
   border-right: var(--border-width) solid var(--border-color);
 }
 
+/* Right Grid */
 .sub-grid-container {
   width: 100%;
   height: 100%;
@@ -25,12 +28,58 @@
   overflow: auto;
 }
 
+/* File Path Display at the Top */
 #file-path-container {
   background-color: var(--third-color);
   border-bottom: var(--border-width) solid var(--border-color);
   text-align: left;
 }
 
+/* The <p> displaying the filepath */
 #file-path {
   margin-left: 10px;
+}
+
+/* Items Section */
+
+#content-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 10px;
+  padding: 10px;
+  overflow: auto;
+}
+
+.folder-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  cursor: pointer;
+  aspect-ratio: 1/1;
+  transition: ease-in-out 0.1s;
+}
+
+.folder-item:hover {
+  background-color: var(--button-hover-color);
+}
+
+.folder-item:active {
+  background-color: var(--button-active-color);
+}
+
+.folder-icon {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+.folder-item:hover {
+  background-color: var(--button-hover-color);
+}
+
+.folder-item:active {
+  background-color: var(--button-active-color);
 }
