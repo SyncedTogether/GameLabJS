@@ -1,3 +1,20 @@
+function createEventHandlers() {
+  // Adds a click handler to the new folder button
+  $(".new-folder").click(createNewFolder);
+
+  // Adds a click handler to the add file button
+  $(".add-item").click(addNewFile);
+
+  // Adds a click handler to folder items
+  $(".folder").click(folderClicked);
+
+  // Adds a click handler to asset items
+  $(".asset").click(assetClicked);
+
+  // Adds a click handler to the back button
+  $("#back-button").click(backClicked);
+}
+
 // Updates the file path display in the asset panel to start with the project name and continue with the file path
 function updateFilePath() {
   pFilePath.textContent = projectName + ":/" + filePath;
@@ -5,6 +22,7 @@ function updateFilePath() {
 
 // Displays the contents of a folder in the asset panel by adding a new folder and add file button and then adding a folder item for each child of the folder
 function displayFolderContents(node) {
+  console.log(node);
   let contentSection = $("#content-section");
 
   contentSection.empty();
@@ -94,58 +112,43 @@ function addNewFile() {
   }
 }
 
-function handleFileTreeInput() {
-  // ! BUG: Can't create a folder or itemin the file tree after creating a new folder or item
+function folderClicked() {
+  console.log("folder clicked");
+  let childId = $(this).data("id");
+  let childNode = $("#file-tree").jstree(true).get_node(childId);
+  filePath += childNode.text + "/";
+  updateFilePath();
+  displayFolderContents(childNode);
 
-  // This is a handler for the new folder button
-  $(".new-folder").on("click", function () {
-    createNewFolder();
-  });
+  // Select the clicked folder in the jsTree
+  $("#file-tree").jstree("deselect_all"); // Deselect any currently selected nodes
+  $("#file-tree").jstree("select_node", childId); // Select the clicked folder node
+}
 
-  // This is a handler for the add file button
-  $(".add-item").on("click", function () {
-    addNewFile();
-  });
+function assetClicked() {
+  console.log("asset clicked");
+}
 
-  // Handle Folder Item Click
-  $(".folder").on("click", function (event) {
-    let childId = $(this).data("id");
-    let childNode = $("#file-tree").jstree(true).get_node(childId);
-    filePath += childNode.text + "/";
+function backClicked() {
+  // Get the parent folder of the current folder
+  let parentNode = $("#file-tree")
+    .jstree(true)
+    .get_node($("#file-tree").jstree("get_selected", true)[0].parent);
+
+  // If the parent folder is the root folder, then we can't go back any further
+  if (parentNode.id === "#") {
+    return;
+  } else {
+    // go to the parent folder
+    filePath = filePath.substring(
+      0,
+      filePath.lastIndexOf("/", filePath.length - 2) + 1
+    );
     updateFilePath();
-    displayFolderContents(childNode);
+    displayFolderContents(parentNode);
 
-    // Select the clicked folder in the jsTree
+    // Select the parent folder in the jsTree
     $("#file-tree").jstree("deselect_all"); // Deselect any currently selected nodes
-    $("#file-tree").jstree("select_node", childId); // Select the clicked folder node
-  });
-
-  // Handle Asset Item Click
-  $(".asset").on("click", function (event) {
-    console.log("Asset item clicked");
-  });
-
-  $("#back-button").on("click", function () {
-    // Get the parent folder of the current folder
-    let parentNode = $("#file-tree")
-      .jstree(true)
-      .get_node($("#file-tree").jstree("get_selected", true)[0].parent);
-
-    // If the parent folder is the root folder, then we can't go back any further
-    if (parentNode.id === "#") {
-      return;
-    } else {
-      // go to the parent folder
-      filePath = filePath.substring(
-        0,
-        filePath.lastIndexOf("/", filePath.length - 2) + 1
-      );
-      updateFilePath();
-      displayFolderContents(parentNode);
-
-      // Select the parent folder in the jsTree
-      $("#file-tree").jstree("deselect_all"); // Deselect any currently selected nodes
-      $("#file-tree").jstree("select_node", parentNode.id); // Select the parent folder node
-    }
-  });
+    $("#file-tree").jstree("select_node", parentNode.id); // Select the parent folder node
+  }
 }
