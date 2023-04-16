@@ -103,6 +103,8 @@ $(function () {
     if (rootNode) {
       data.instance.select_node(rootNode);
     }
+
+    handleFileTreeInput();
   });
 
   $("#file-tree").on("changed.jstree", function (e, data) {

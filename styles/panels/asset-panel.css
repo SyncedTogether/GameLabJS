@@ -30,9 +30,22 @@
 
 /* File Path Display at the Top */
 #file-path-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: var(--third-color);
   border-bottom: var(--border-width) solid var(--border-color);
   text-align: left;
+}
+
+/* Back button styles */
+#back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 3px;
 }
 
 /* The <p> displaying the filepath */

@@ -39,34 +39,6 @@ function displayFolderContents(node) {
       </div>
     `);
   });
-
-  // This is a handler for the new folder button
-  $(".new-folder").on("click", function () {
-    createNewFolder();
-  });
-
-  // This is a handler for the add file button
-  $(".add-item").on("click", function () {
-    addNewFile();
-  });
-
-  // Handle Folder Item Click
-  $(".folder").on("click", function (event) {
-    let childId = $(this).data("id");
-    let childNode = $("#file-tree").jstree(true).get_node(childId);
-    filePath += childNode.text + "/";
-    updateFilePath();
-    displayFolderContents(childNode);
-
-    // Select the clicked folder in the jsTree
-    $("#file-tree").jstree("deselect_all"); // Deselect any currently selected nodes
-    $("#file-tree").jstree("select_node", childId); // Select the clicked folder node
-  });
-
-  // Handle Asset Item Click
-  $(".asset").on("click", function (event) {
-    console.log("Asset item clicked");
-  });
 }
 
 function createNewFolder() {
@@ -120,4 +92,60 @@ function addNewFile() {
     updateFilePath();
     displayFolderContents(parentNode);
   }
+}
+
+function handleFileTreeInput() {
+  // ! BUG: Can't create a folder or itemin the file tree after creating a new folder or item
+
+  // This is a handler for the new folder button
+  $(".new-folder").on("click", function () {
+    createNewFolder();
+  });
+
+  // This is a handler for the add file button
+  $(".add-item").on("click", function () {
+    addNewFile();
+  });
+
+  // Handle Folder Item Click
+  $(".folder").on("click", function (event) {
+    let childId = $(this).data("id");
+    let childNode = $("#file-tree").jstree(true).get_node(childId);
+    filePath += childNode.text + "/";
+    updateFilePath();
+    displayFolderContents(childNode);
+
+    // Select the clicked folder in the jsTree
+    $("#file-tree").jstree("deselect_all"); // Deselect any currently selected nodes
+    $("#file-tree").jstree("select_node", childId); // Select the clicked folder node
+  });
+
+  // Handle Asset Item Click
+  $(".asset").on("click", function (event) {
+    console.log("Asset item clicked");
+  });
+
+  $("#back-button").on("click", function () {
+    // Get the parent folder of the current folder
+    let parentNode = $("#file-tree")
+      .jstree(true)
+      .get_node($("#file-tree").jstree("get_selected", true)[0].parent);
+
+    // If the parent folder is the root folder, then we can't go back any further
+    if (parentNode.id === "#") {
+      return;
+    } else {
+      // go to the parent folder
+      filePath = filePath.substring(
+        0,
+        filePath.lastIndexOf("/", filePath.length - 2) + 1
+      );
+      updateFilePath();
+      displayFolderContents(parentNode);
+
+      // Select the parent folder in the jsTree
+      $("#file-tree").jstree("deselect_all"); // Deselect any currently selected nodes
+      $("#file-tree").jstree("select_node", parentNode.id); // Select the parent folder node
+    }
+  });
 }
