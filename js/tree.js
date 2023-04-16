@@ -3,15 +3,37 @@ $(function () {
     {
       text: "Root",
       state: { opened: true },
+      type: "folder",
       children: [
         {
           text: "Subfolder 1",
-          children: [{ text: "Subfolder 1.1" }, { text: "Subfolder 1.2" }],
+          type: "folder",
+          children: [
+            { text: "Subfolder 1.1", type: "folder" },
+            { text: "Subfolder 1.2", type: "folder" },
+          ],
         },
-        { text: "Subfolder 2" },
+        { text: "Subfolder 2", type: "folder" },
+        { text: "Subfolder 3", type: "folder" },
       ],
     },
   ];
+
+  $("#file-tree").jstree({
+    core: {
+      data: treeData,
+      check_callback: true,
+    },
+    plugins: ["types"],
+    types: {
+      folder: {
+        icon: "/imgs/foldersheet.png",
+      },
+      asset: {
+        icon: "/imgs/assetsheet.png",
+      },
+    },
+  });
 
   $("#file-tree").jstree({
     core: {

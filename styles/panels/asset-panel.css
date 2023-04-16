@@ -1,3 +1,7 @@
+:root {
+  --grid-gap: 10px;
+}
+
 /* Main Grid */
 .grid-container {
   width: 100%;
@@ -24,10 +28,6 @@
   grid-template-rows: 1fr 14fr;
 }
 
-.grid-child {
-  overflow: auto;
-}
-
 /* File Path Display at the Top */
 #file-path-container {
   background-color: var(--third-color);
@@ -41,13 +41,15 @@
 }
 
 /* Items Section */
-
 #content-section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  grid-gap: 10px;
+  grid-gap: var(
+    --grid-gap
+  ); /* Use CSS variable for both horizontal and vertical gap */
   padding: 10px;
   overflow: auto;
+  align-content: start;
 }
 
 .folder-item {
@@ -61,6 +63,7 @@
   cursor: pointer;
   aspect-ratio: 1/1;
   transition: ease-in-out 0.1s;
+  margin-bottom: var(--grid-gap);
 }
 
 .folder-item:hover {
@@ -71,15 +74,22 @@
   background-color: var(--button-active-color);
 }
 
-.folder-icon {
+.folder-item .folder-icon {
   font-size: 2em;
-  margin-bottom: 5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.folder-item:hover {
-  background-color: var(--button-hover-color);
+.folder-item .folder-icon img {
+  margin-top: -10px;
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
 }
 
-.folder-item:active {
-  background-color: var(--button-active-color);
+.folder-item p {
+  margin: -5px;
 }

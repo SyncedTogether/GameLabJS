@@ -5,7 +5,7 @@ function updateFilePath() {
 
 // Displays the contents of a folder in the asset panel by adding a new folder and add file button and then adding a folder item for each child of the folder
 function displayFolderContents(node) {
-  var contentSection = $("#content-section");
+  let contentSection = $("#content-section");
 
   contentSection.empty();
 
@@ -20,6 +20,26 @@ function displayFolderContents(node) {
       </div>
   `);
 
+  node.children.forEach(function (childId) {
+    // Get the node object for the child
+    let childNode = $("#file-tree").jstree(true).get_node(childId);
+
+    // Set the class based on the type of node
+    let itemClass =
+      childNode.type === "folder" ? "folder-item folder" : "folder-item asset";
+
+    // Get the non sheet version of the icon
+    let icon = childNode.icon.replace("sheet", "").trim();
+
+    // Add the folder item to the content section
+    contentSection.append(`
+      <div class="folder-item ${itemClass}" data-id="${childId}">
+        <div class="folder-icon"><img src="${icon}" alt="${itemClass}" /></div>
+        <p>${childNode.text}</p>
+      </div>
+    `);
+  });
+
   // This is a handler for the new folder button
   $(".new-folder").on("click", function () {
     createNewFolder();
@@ -27,18 +47,25 @@ function displayFolderContents(node) {
 
   // This is a handler for the add file button
   $(".add-item").on("click", function () {
-    console.log("Add File button clicked");
-    // Call your function for adding a new file here
+    addNewFile();
   });
 
-  node.children.forEach(function (childId) {
-    var childNode = $("#file-tree").jstree(true).get_node(childId);
-    contentSection.append(`
-      <div class="folder-item" data-id="${childId}">
-        <div class="folder-icon">${childNode.icon}</div>
-        <p>${childNode.text}</p>
-      </div>
-    `);
+  // Handle Folder Item Click
+  $(".folder").on("click", function (event) {
+    let childId = $(this).data("id");
+    let childNode = $("#file-tree").jstree(true).get_node(childId);
+    filePath += childNode.text + "/";
+    updateFilePath();
+    displayFolderContents(childNode);
+
+    // Select the clicked folder in the jsTree
+    $("#file-tree").jstree("deselect_all"); // Deselect any currently selected nodes
+    $("#file-tree").jstree("select_node", childId); // Select the clicked folder node
+  });
+
+  // Handle Asset Item Click
+  $(".asset").on("click", function (event) {
+    console.log("Asset item clicked");
   });
 }
 
@@ -68,17 +95,29 @@ function createNewFolder() {
 
 // Adds a new file to the file tree
 function addNewFile() {
+  // * TODO: Allow to import file from local machine
+  console.log("Adding new file");
+
+  // ! Temporary Code
   var parentNode = $("#file-tree").jstree("get_selected", true)[0];
   if (!parentNode) {
-    alert("Please select a folder in the tree before adding a new file.");
+    alert("Please select a folder in the tree before creating a new folder.");
     return;
   }
 
-  var fileName = prompt("Enter the name for the new file:");
-  if (fileName) {
-    $("#file-tree").jstree("create_node", parentNode, {
-      text: fileName,
-      type: "file",
-    });
+  var assetName = prompt("Enter the name for the new Asset:");
+  if (assetName) {
+    $("#file-tree").jstree(
+      "create_node",
+      parentNode,
+      {
+        text: assetName,
+        type: "asset",
+      },
+      "last"
+    );
+    // Refresh the file path and folder contents display
+    updateFilePath();
+    displayFolderContents(parentNode);
   }
 }

@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="sub-grid-container">
         <div id="file-path-container">
           <p id="file-path"></p>
+          <button id="back-button">Back</button>
         </div>
         <div id="content-section"></div>
       </div>
