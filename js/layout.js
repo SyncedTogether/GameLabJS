@@ -87,11 +87,18 @@ document.addEventListener("DOMContentLoaded", function () {
   myLayout.registerComponent("codePanel", function (container, state) {
     container
       .getElement()
-      .html(`<div class="panel-content"><div id="monaco-editor"></div></div>`);
+      .html(
+        `<div class="editor-container"><div id="monaco-editor"></div></div>`
+      );
   });
 
   myLayout.on("initialised", function () {
     StaggeredDOMInit();
+  });
+
+  myLayout.on("stateChanged", () => {
+    // Sometimes a glitch happens when you change windows around the editor, this fixes the empty space the glitch creates
+    myLayout.updateSize();
   });
 
   myLayout.init();
