@@ -103,12 +103,10 @@ $(function () {
     if (rootNode) {
       data.instance.select_node(rootNode);
     }
-    createEventHandlers();
   });
 
   $("#file-tree").on("changed.jstree", function (e, data) {
     if (data.selected.length) {
-      console.log(data.selected);
       filePath = data.instance.get_path(data.selected[0], "/");
       updateFilePath();
 

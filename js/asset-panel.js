@@ -1,19 +1,11 @@
-function createEventHandlers() {
-  // Adds a click handler to the new folder button
-  $(".new-folder").click(createNewFolder);
-
-  // Adds a click handler to the add file button
-  $(".add-item").click(addNewFile);
-
-  // Adds a click handler to folder items
-  $(".folder").click(folderClicked);
-
-  // Adds a click handler to asset items
-  $(".asset").click(assetClicked);
-
-  // Adds a click handler to the back button
+$(document).ready(function () {
+  // Add event handlers
+  $("#content-section").on("click", ".new-folder", createNewFolder);
+  $("#content-section").on("click", ".add-item", addNewFile);
+  $("#content-section").on("click", ".folder-item.folder", folderClicked);
+  $("#content-section").on("click", ".folder-item.asset", assetClicked);
   $("#back-button").click(backClicked);
-}
+});
 
 // Updates the file path display in the asset panel to start with the project name and continue with the file path
 function updateFilePath() {
@@ -22,7 +14,6 @@ function updateFilePath() {
 
 // Displays the contents of a folder in the asset panel by adding a new folder and add file button and then adding a folder item for each child of the folder
 function displayFolderContents(node) {
-  console.log(node);
   let contentSection = $("#content-section");
 
   contentSection.empty();
@@ -117,8 +108,6 @@ function folderClicked() {
   let childId = $(this).data("id");
   let childNode = $("#file-tree").jstree(true).get_node(childId);
   filePath += childNode.text + "/";
-  updateFilePath();
-  displayFolderContents(childNode);
 
   // Select the clicked folder in the jsTree
   $("#file-tree").jstree("deselect_all"); // Deselect any currently selected nodes
@@ -144,8 +133,6 @@ function backClicked() {
       0,
       filePath.lastIndexOf("/", filePath.length - 2) + 1
     );
-    updateFilePath();
-    displayFolderContents(parentNode);
 
     // Select the parent folder in the jsTree
     $("#file-tree").jstree("deselect_all"); // Deselect any currently selected nodes
