@@ -145,37 +145,31 @@ function folderClicked() {
 }
 
 async function assetClicked() {
-  // Get the 'data-id' attribute of the clicked element
   let fileId = $(this).data("id");
-
-  // Get the corresponding jstree node using the 'data-id' attribute
   let fileNode = $("#file-tree").jstree(true).get_node(fileId);
 
-  // Display the file name (stored in the 'text' property of the jstree node)
-  console.log("File name:", fileNode.text);
+  const mainCodePanel = myLayout.root.getItemsById("mainCodePanel")[0];
 
-  // ! NOT WORKING
-  // Get the file content using the file path stored in the jstree node's data
-  const response = await fetch(fileNode.data.path);
-  const fileContent = await response.text();
+  if (mainCodePanel) {
+    codePanelCounter++;
 
-  // Create a new tab in the Code Panel
-  const codePanelContainer = document.getElementById("code-panel-container");
-  const newTab = document.createElement("div");
-  newTab.classList.add("code-tab");
-  codePanelContainer.appendChild(newTab);
+    const tab = mainCodePanel.parent.addChild({
+      type: "component",
+      componentName: "codePanel",
+      title: `Code Panel ${codePanelCounter}`,
+    });
 
-  // Create a new editor instance for the new tab
-  const newEditor = monaco.editor.create(newTab, {
-    value: fileContent,
-    language: "javascript",
-    theme: "vs-dark",
-  });
+    // add the file content to the tab's monaco ed9tor
+    const fileContent = await getFileContent(fileNode.data.path);
+    console.log('fileContent: ', fileContent);
 
-  // Set the new tab as active
-  $(".code-tab").css("display", "none");
-  $(newTab).css("display", "block");
+
+  } else {
+    console.error("No mainCodePanel found");
+  }
 }
+
+
 
 function backClicked() {
   // Get the parent folder of the current folder
