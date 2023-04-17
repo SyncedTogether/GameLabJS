@@ -154,6 +154,7 @@ async function assetClicked() {
   // Display the file name (stored in the 'text' property of the jstree node)
   console.log("File name:", fileNode.text);
 
+  // ! NOT WORKING
   // Get the file content using the file path stored in the jstree node's data
   const response = await fetch(fileNode.data.path);
   const fileContent = await response.text();
