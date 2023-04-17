@@ -81,4 +81,15 @@ function initSceneListeners() {
   canvas.addEventListener("mouseleave", (e) => {
     isPanning = false;
   });
+
+  propertiesPanelHandle.addEventListener("click", () => {
+    // Check if the properties panel is hidden or visible
+    const isHidden = propertiesPanel.style.right === "-200px";
+
+    // Set the right property to show or hide the panel
+    propertiesPanel.style.right = isHidden ? "0px" : "-200px";
+
+    // Rotate the handle arrow based on the panel's visibility
+    propertiesPanelHandle.innerHTML = isHidden ? "&#x25B6;" : "&#x25C0;";
+  });
 }

@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   myLayout.registerComponent("previewPanel", function (container, state) {
     container.getElement().html(
       `<div class="preview-container" id="preview-container-id">
-      <!--<div class="preview-toolbar">
+      <div class="preview-toolbar">
       <button class="icon-btn" id="select-btn">
         <img src="imgs/cursor.png" alt="Play Icon" class="icon" />
       </button>
@@ -56,12 +56,13 @@ document.addEventListener("DOMContentLoaded", function () {
       <button id="toggle-grid">Toggle Grid</button>
       <button id="toggle-properties">Toggle Properties</button>
     </div>
-    <img src="imgs/bg.png" alt="Preview" class="bg" /> -->
     <div class="canvas-container">
     <canvas id="bg-canvas"></canvas>
     <canvas id="preview-canvas"></canvas>
     </div>
     <div class="properties-panel">
+      <div class="properties-panel-handle">&#x25C0;</div>
+      Test content
       <!-- ! Properties panel content -->
     </div></div>`
     );

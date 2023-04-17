@@ -27,6 +27,8 @@ let editor = null;
 let previewContainer = null;
 let backgroundCanvas = null;
 let backgroundCanvasCtx = null;
+let propertiesPanel = null;
+let propertiesPanelHandle = null;
 let canvas = null;
 let ctx = null;
 const bgPatterSize = 10;
@@ -45,6 +47,8 @@ function StaggeredDOMInit() {
   backgroundCanvasCtx = backgroundCanvas.getContext("2d");
   canvas = document.getElementById("preview-canvas");
   ctx = canvas.getContext("2d");
+  propertiesPanel = document.querySelector(".properties-panel");
+  propertiesPanelHandle = document.querySelector(".properties-panel-handle");
 
   initPreviewPanel();
 }
