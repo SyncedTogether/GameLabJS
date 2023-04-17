@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // * Preview Panel Component
   myLayout.registerComponent("previewPanel", function (container, state) {
     container.getElement().html(
-      `<div class="panel-content"><div class="preview-toolbar">
-      <!-- Toolbar buttons -->
+      `<div class="preview-container" id="preview-container-id">
+      <!--<div class="preview-toolbar">
       <button class="icon-btn" id="select-btn">
         <img src="imgs/cursor.png" alt="Play Icon" class="icon" />
       </button>
@@ -56,8 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
       <button id="toggle-grid">Toggle Grid</button>
       <button id="toggle-properties">Toggle Properties</button>
     </div>
-    <!-- <img src="imgs/bg.png" alt="Preview" class="bg" /> -->
+    <img src="imgs/bg.png" alt="Preview" class="bg" /> -->
+    <div class="canvas-container">
+    <canvas id="bg-canvas"></canvas>
     <canvas id="preview-canvas"></canvas>
+    </div>
     <div class="properties-panel">
       <!-- ! Properties panel content -->
     </div></div>`
@@ -86,11 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // * Code Panel Component
   myLayout.registerComponent("codePanel", function (container, state) {
-    container
-      .getElement()
-      .html(
-        `<div class="editor-container"><div id="monaco-editor"></div></div>`
-      );
+    container.getElement().html(`<div class="editor-container"><div id="monaco-editor"></div></div>`);
   });
 
   myLayout.on("initialised", function () {
@@ -98,8 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   myLayout.on("stateChanged", () => {
-    // Sometimes a glitch happens when you change windows around the editor, this fixes the empty space the glitch creates
-    myLayout.updateSize();
+    initPreviewPanel();
   });
 
   myLayout.init();
