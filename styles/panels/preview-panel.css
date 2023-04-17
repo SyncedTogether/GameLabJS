@@ -32,7 +32,7 @@
   right: -200px;
   width: 200px;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(30, 30, 30, 0.9);
   z-index: 10;
   transition: right 0.5s;
 }
