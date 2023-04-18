@@ -6,3 +6,26 @@ window.addEventListener("resize", function () {
   myLayout.updateSize();
 });
 
+function initListeners() {
+  homeButton.addEventListener("click", function () {
+    displayHomeScreen();
+  });
+
+  newProjectButton.addEventListener("click", function () {
+    if (filePath) {
+      window.location.reload();
+    }
+  });
+
+  saveProjectButton.addEventListener("click", function () {
+    if (filePath) {
+      saveProject();
+    }
+  });
+
+  projectSettingsButton.addEventListener("click", function () {
+    if (filePath) {
+      showProjectSettings();
+    }
+  });
+}

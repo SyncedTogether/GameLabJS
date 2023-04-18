@@ -32,6 +32,10 @@ let propertiesPanelHandle = null;
 let canvas = null;
 let ctx = null;
 let toggleGridButton = null;
+let homeButton = null;
+let newProjectButton = null;
+let saveProjectButton = null;
+let projectSettingsButton = null;
 const bgPatterSize = 10;
 
 // DOM Elements added into Golden Layout don't immediately get added to the DOM
@@ -46,6 +50,12 @@ function StaggeredDOMInit() {
   propertiesPanel = document.querySelector(".properties-panel");
   propertiesPanelHandle = document.querySelector(".properties-panel-handle");
   toggleGridButton = document.getElementById("toggle-grid");
+  homeButton = document.getElementById("home-button");
+  newProjectButton = document.getElementById("new-project-button");
+  saveProjectButton = document.getElementById("save-project-button");
+  projectSettingsButton = document.getElementById("project-settings-button");
 
+  initListeners();
   initPreviewPanel();
 }
+
