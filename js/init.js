@@ -23,7 +23,6 @@ let zoomLevel = 1;
 
 // Global Access to Golden Layout's DOM Elements
 let pFilePath = null;
-let editor = null;
 let previewContainer = null;
 let backgroundCanvas = null;
 let backgroundCanvasCtx = null;
@@ -37,11 +36,6 @@ const bgPatterSize = 10;
 // This is why we need to wait for the layout to be ready before we can access the DOM elements
 function StaggeredDOMInit() {
   pFilePath = document.getElementById("file-path");
-  editor = monaco.editor.create(document.getElementById("monaco-editor"), {
-    value: ["function x() {", '\tconsole.log("Hello world!");', "}"].join("\n"),
-    language: "javascript",
-    theme: "vs-dark",
-  });
   previewContainer = document.getElementById("preview-container-id");
   backgroundCanvas = document.getElementById("bg-canvas");
   backgroundCanvasCtx = backgroundCanvas.getContext("2d");

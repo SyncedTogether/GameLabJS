@@ -2,8 +2,8 @@ $(document).ready(function () {
   // Add event handlers
   $("#content-section").on("click", ".new-folder", createNewFolder);
   $("#content-section").on("click", ".add-item", addNewFile);
-  $("#content-section").on("click", ".folder-item.folder", folderClicked);
-  $("#content-section").on("click", ".folder-item.asset", assetClicked);
+  $("#content-section").on("dblclick", ".folder-item.folder", folderClicked);
+  $("#content-section").on("dblclick", ".folder-item.asset", assetClicked);
   $("#back-button").click(backClicked);
 });
 
@@ -154,27 +154,50 @@ async function assetClicked() {
   // Display the file name (stored in the 'text' property of the jstree node)
   console.log("File name:", fileNode.text);
 
-  // ! NOT WORKING
-  // Get the file content using the file path stored in the jstree node's data
-  const response = await fetch(fileNode.data.path);
-  const fileContent = await response.text();
+  const mainCodePanel = myLayout.root.getItemsById("mainCodePanel")[0];
 
-  // Create a new tab in the Code Panel
-  const codePanelContainer = document.getElementById("code-panel-container");
-  const newTab = document.createElement("div");
-  newTab.classList.add("code-tab");
-  codePanelContainer.appendChild(newTab);
+  if (mainCodePanel) {
 
-  // Create a new editor instance for the new tab
-  const newEditor = monaco.editor.create(newTab, {
-    value: fileContent,
-    language: "javascript",
-    theme: "vs-dark",
-  });
+    mainCodePanel.parent.addChild({
+      type: "component",
+      componentName: "codePanel",
+      title: `${fileNode.text}`,
+      id: `${fileNode.text}`,
+    });
 
-  // Set the new tab as active
-  $(".code-tab").css("display", "none");
-  $(newTab).css("display", "block");
+    // get the new code panel component
+    const codePanel = myLayout.root.getItemsById(`${fileNode.text}`)[0];
+
+    // get the monaco editor instance
+    const editor = codePanel.container.editor;
+    console.log('editor: ', editor);
+
+    // get the file content
+    const fileContent = await getFileContent(fileNode.data.path);
+
+    // check the file extension
+    const fileExtension = fileNode.data.path.split('.').pop();
+
+    // set the language of the editor
+    //editor.getModel();
+
+    try {
+      editor.setModelLanguage(text, `${fileExtension}`);
+    }
+    catch {
+      console.log("Unreadable");
+    }
+
+
+    // set the file content to the editor
+    editor.setValue(fileContent);
+
+
+
+
+  } else {
+    console.error("No mainCodePanel found");
+  }
 }
 
 function backClicked() {
@@ -192,4 +215,25 @@ function backClicked() {
     $("#file-tree").jstree("deselect_all"); // Deselect any currently selected nodes
     $("#file-tree").jstree("select_node", parentNode.id); // Select the parent folder node
   }
+}
+
+function getFileContent(path) {
+  return "test";
+}
+
+function getFileContent(path) {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: `${path}`,
+      type: "GET",
+      success: (response) => {
+        console.log("File content retrieved successfully");
+        resolve(response);
+      },
+      error: () => {
+        console.error("File content retrieval failed");
+        reject();
+      },
+    });
+  });
 }

@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             type: "component",
             componentName: "codePanel",
             title: "Code Panel",
+            id: "mainCodePanel",
           },
         ],
       },
@@ -89,8 +90,28 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // * Code Panel Component
-  myLayout.registerComponent("codePanel", function (container, state) {
-    container.getElement().html(`<div class="editor-container" id="code-panel-container"><div id="monaco-editor"></div></div>`);
+  myLayout.registerComponent("codePanel", function (container, componentState) {
+    const editorContainer = document.createElement("div");
+    editorContainer.classList.add("editor-container");
+    container.getElement().append(editorContainer);
+
+    const editor = monaco.editor.create(editorContainer, {
+      language: "javascript",
+      theme: "vs-dark",
+    });
+
+    // Add the 'monaco-editor' class to the editor's DOM node
+    editor.getDomNode().classList.add("monaco-editor");
+
+    container.on("resize", () => {
+      editor.layout();
+    });
+
+    container.on("destroy", () => {
+      editor.dispose();
+    });
+
+    container.editor = editor;
   });
 
   myLayout.on("initialised", function () {
