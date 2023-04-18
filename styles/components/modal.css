@@ -11,6 +11,8 @@
 }
 
 .modal-content {
+    display: flex;
+    flex-direction: column;
     background-color: var(--background-color);
     position: absolute;
     left: 50%;
@@ -48,31 +50,36 @@
     width: 100%;
     max-height: 200px;
     object-fit: cover;
-    margin-bottom: 20px;
 }
 
 .home-menu {
+    flex-grow: 1;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.home-buttons {
+    display: flex;
+    width: 100%;
 }
 
 .home-button {
-    margin: 10px;
-    padding: 10px 20px;
+    flex-grow: 1;
+    margin: 5px;
+    padding: 10px;
     background-color: var(--button-color);
+    border: none;
     color: var(--foreground-color);
-    border: 2px solid var(--border-color);
-    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    transition: ease-in-out 0.15s;
-    font-size: 1em;
+    transition: background-color 0.3s ease;
 }
 
 .home-button:hover {
     background-color: var(--button-hover-color);
 }
 
-.home-button:active {
-    background-color: var(--button-active-color);
+.home-button:focus {
+    outline: none;
 }
