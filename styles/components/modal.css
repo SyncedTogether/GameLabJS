@@ -27,13 +27,14 @@
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     animation-name: modal-open;
-    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(.04, .25, .26, 1);
+    animation-duration: 0.7s;
 }
 
 @keyframes modal-open {
     from {
         opacity: 0;
-        transform: translateY(-75%) translateX(-50%);
+        transform: translateY(-65%) translateX(-50%);
     }
 
     to {
