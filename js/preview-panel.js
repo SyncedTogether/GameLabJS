@@ -8,19 +8,29 @@ function initPreviewPanel() {
 }
 
 function drawBackgroundCanvas() {
-  backgroundCanvas.width = previewContainer.clientWidth;
-  backgroundCanvas.height = previewContainer.clientHeight;
+  if (isDisplayingGrid) {
+    backgroundCanvas.width = previewContainer.clientWidth;
+    backgroundCanvas.height = previewContainer.clientHeight;
 
-  // Draw chess board background
-  backgroundCanvasCtx.fillStyle = "#111111";
-  backgroundCanvasCtx.fillRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
-  backgroundCanvasCtx.fillStyle = "#222222";
-  for (let i = 0; i < backgroundCanvas.width; i += bgPatterSize) {
-    for (let j = 0; j < backgroundCanvas.height; j += bgPatterSize) {
-      if ((i + j) % (bgPatterSize * 2) == 0) {
-        backgroundCanvasCtx.fillRect(i, j, bgPatterSize, bgPatterSize);
+    // Draw chess board background
+    backgroundCanvasCtx.fillStyle = "#111111";
+    backgroundCanvasCtx.fillRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
+    backgroundCanvasCtx.fillStyle = "#222222";
+    for (let i = 0; i < backgroundCanvas.width; i += bgPatterSize) {
+      for (let j = 0; j < backgroundCanvas.height; j += bgPatterSize) {
+        if ((i + j) % (bgPatterSize * 2) == 0) {
+          backgroundCanvasCtx.fillRect(i, j, bgPatterSize, bgPatterSize);
+        }
       }
     }
+  } else {
+    backgroundCanvas.width = previewContainer.clientWidth;
+    backgroundCanvas.height = previewContainer.clientHeight;
+
+    // Draw solid background
+    backgroundCanvasCtx.fillStyle = "#111111";
+    backgroundCanvasCtx.fillRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
+
   }
 }
 
@@ -91,5 +101,10 @@ function initSceneListeners() {
 
     // Rotate the handle arrow based on the panel's visibility
     propertiesPanelHandle.innerHTML = isHidden ? "&#x25B6;" : "&#x25C0;";
+  });
+
+  toggleGridButton.addEventListener("click", function () {
+    isDisplayingGrid = !isDisplayingGrid;
+    initPreviewPanel();
   });
 }

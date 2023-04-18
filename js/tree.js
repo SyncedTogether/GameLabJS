@@ -4,18 +4,6 @@ $(function () {
       text: "Root",
       state: { opened: true },
       type: "folder",
-      children: [
-        {
-          text: "Subfolder 1",
-          type: "folder",
-          children: [
-            { text: "Subfolder 1.1", type: "folder" },
-            { text: "Subfolder 1.2", type: "folder" },
-          ],
-        },
-        { text: "Subfolder 2", type: "folder" },
-        { text: "Subfolder 3", type: "folder" },
-      ],
     },
   ];
 

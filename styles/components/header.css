@@ -1,0 +1,37 @@
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+}
+
+.logo {
+    height: 22px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.title {
+    font-size: 1em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    margin-left: 0px;
+}
+
+.icon {
+    height: 20px;
+}
+
+#header button {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 12px;
+}

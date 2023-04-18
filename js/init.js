@@ -20,6 +20,7 @@ let isPanning = false;
 let lastMousePos = { x: 0, y: 0 };
 let panOffset = { x: 0, y: 0 };
 let zoomLevel = 1;
+let isDisplayingGrid = true;
 
 // Global Access to Golden Layout's DOM Elements
 let pFilePath = null;
@@ -30,6 +31,7 @@ let propertiesPanel = null;
 let propertiesPanelHandle = null;
 let canvas = null;
 let ctx = null;
+let toggleGridButton = null;
 const bgPatterSize = 10;
 
 // DOM Elements added into Golden Layout don't immediately get added to the DOM
@@ -43,6 +45,7 @@ function StaggeredDOMInit() {
   ctx = canvas.getContext("2d");
   propertiesPanel = document.querySelector(".properties-panel");
   propertiesPanelHandle = document.querySelector(".properties-panel-handle");
+  toggleGridButton = document.getElementById("toggle-grid");
 
   initPreviewPanel();
 }

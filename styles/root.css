@@ -11,6 +11,8 @@
   --button-color: #1a1a1a;
   --button-hover-color: #2a2a2a;
   --button-active-color: #363636;
+
+  --header-height: 35px;
 }
 
 html,
@@ -20,4 +22,22 @@ body {
   padding: 0;
   color: var(--foreground-color);
   font-family: "Roboto", sans-serif;
+}
+
+
+#header {
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+#layout-container {
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  margin-top: var(--header-height);
 }

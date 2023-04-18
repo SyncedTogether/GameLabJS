@@ -48,14 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <button class="icon-btn" id="zoom-btn">
         <img src="imgs/zoom.png" alt="Play Icon" class="icon" />
       </button>
-      <button class="icon-btn" id="scale-btn">
-        <img src="imgs/scale.png" alt="Play Icon" class="icon" />
-      </button>
-      <button class="icon-btn" id="rotate-btn">
-        <img src="imgs/rotate.png" alt="Play Icon" class="icon" />
-      </button>
       <button id="toggle-grid">Toggle Grid</button>
-      <button id="toggle-properties">Toggle Properties</button>
     </div>
     <div class="canvas-container">
     <canvas id="bg-canvas"></canvas>

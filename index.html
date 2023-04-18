@@ -1,52 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Head -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GameLabsJS</title>
 
-    <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<head>
+  <!-- Head -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameLabsJS</title>
 
-    <!-- Golden Layout References -->
-    <script type="text/javascript" src="https://golden-layout.com/files/latest/js/goldenlayout.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://golden-layout.com/files/latest/css/goldenlayout-base.css" />
-    <link type="text/css" rel="stylesheet" href="https://golden-layout.com/files/latest/css/goldenlayout-dark-theme.css" />
+  <!-- JQUERY -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Monaco Editor Refrences -->
-    <link rel="stylesheet" data-name="vs/editor/editor.main" href="../node_modules/monaco-editor/min/vs/editor/editor.main.css" />
+  <!-- Golden Layout References -->
+  <script type="text/javascript" src="https://golden-layout.com/files/latest/js/goldenlayout.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://golden-layout.com/files/latest/css/goldenlayout-base.css" />
+  <link type="text/css" rel="stylesheet"
+    href="https://golden-layout.com/files/latest/css/goldenlayout-dark-theme.css" />
 
-    <!-- JS Tree Rreferences -->
-    <link rel="stylesheet" href="styles/tree/jstree.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
+  <!-- Monaco Editor Refrences -->
+  <link rel="stylesheet" data-name="vs/editor/editor.main"
+    href="../node_modules/monaco-editor/min/vs/editor/editor.main.css" />
 
-    <!-- Style Sheet References -->
-    <link rel="stylesheet" href="styles/root.css" />
-    <link rel="stylesheet" href="styles/components/button.css" />
-    <link rel="stylesheet" href="styles/components/scrollbar.css" />
-    <link rel="stylesheet" href="styles/panels/asset-panel.css" />
-    <link rel="stylesheet" href="styles/panels/code-panel.css" />
-    <link rel="stylesheet" href="styles/panels/preview-panel.css" />
-  </head>
-  <body>
-    <div id="main-container">
+  <!-- JS Tree Rreferences -->
+  <link rel="stylesheet" href="styles/tree/jstree.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
+
+  <!-- Style Sheet References -->
+  <link rel="stylesheet" href="styles/root.css" />
+  <link rel="stylesheet" href="styles/components/button.css" />
+  <link rel="stylesheet" href="styles/components/scrollbar.css" />
+  <link rel="stylesheet" href="styles/components/header.css" />
+  <link rel="stylesheet" href="styles/panels/asset-panel.css" />
+  <link rel="stylesheet" href="styles/panels/code-panel.css" />
+  <link rel="stylesheet" href="styles/panels/preview-panel.css" />
+</head>
+
+<body>
+  <div id="main-container">
+    <div id="main-grid">
+      <!-- Header -->
+      <header id="header">
+        <nav class="nav-left">
+          <img src="imgs/GameLabsJSLogo.png" alt="GameLabsJS Logo" class="logo" />
+          <h1 class="title">GameLabsJS</h1>
+          <button class="nav-button">Home</button>
+          <button class="nav-button">New Project</button>
+          <button class="nav-button">Save Project</button>
+          <button class="nav-button">Project Settings</button>
+        </nav>
+        <nav class="nav-right">
+          <button class="nav-button">
+            <img src="imgs/undo.png" alt="Play Icon" class="icon" />
+          </button>
+          <button class="nav-button">
+            <img src="imgs/redo.png" alt="Play Icon" class="icon" />
+          </button>
+        </nav>
+      </header>
       <!-- Body -->
-
-      <div id="layout-container" style="width: 100%; height: 100vh"></div>
-
-      <!-- Client Side Script References -->
-      <script src="js/rq.js"></script>
-      <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
-      <script src="../node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
-      <script src="../node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
-      <script src="js/layout.js"></script>
-      <script src="js/init.js"></script>
-      <script src="js/main.js"></script>
-      <script src="js/asset-panel.js"></script>
-      <script src="js/preview-panel.js"></script>
-      <script src="js/tree.js"></script>
-      <script src="js/listeners.js"></script>
+      <div id="layout-container"></div>
     </div>
-  </body>
+    <!-- Client Side Script References -->
+    <script src="js/rq.js"></script>
+    <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
+    <script src="../node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+    <script src="../node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/asset-panel.js"></script>
+    <script src="js/preview-panel.js"></script>
+    <script src="js/tree.js"></script>
+    <script src="js/listeners.js"></script>
+  </div>
+</body>
+
 </html>

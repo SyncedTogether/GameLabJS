@@ -157,44 +157,45 @@ async function assetClicked() {
   const mainCodePanel = myLayout.root.getItemsById("mainCodePanel")[0];
 
   if (mainCodePanel) {
+    // Check if a tab with the same ID already exists
+    let codePanel = myLayout.root.getItemsById(`${fileNode.text}`)[0];
 
-    mainCodePanel.parent.addChild({
-      type: "component",
-      componentName: "codePanel",
-      title: `${fileNode.text}`,
-      id: `${fileNode.text}`,
-    });
+    if (!codePanel) {
+      // If the tab does not exist, create it
+      mainCodePanel.parent.addChild({
+        type: "component",
+        componentName: "codePanel",
+        title: `${fileNode.text}`,
+        id: `${fileNode.text}`,
+      });
 
-    // get the new code panel component
-    const codePanel = myLayout.root.getItemsById(`${fileNode.text}`)[0];
+      // Get the newly created code panel component
+      codePanel = myLayout.root.getItemsById(`${fileNode.text}`)[0];
 
-    // get the monaco editor instance
-    const editor = codePanel.container.editor;
-    console.log('editor: ', editor);
+      // Get the Monaco editor instance
+      const editor = codePanel.container.editor;
+      console.log('editor: ', editor);
 
-    // get the file content
-    const fileContent = await getFileContent(fileNode.data.path);
+      // Get the file content
+      const fileContent = await getFileContent(fileNode.data.path);
 
-    // check the file extension
-    const fileExtension = fileNode.data.path.split('.').pop();
+      // Check the file extension
+      const fileExtension = fileNode.data.path.split('.').pop();
 
-    // set the language of the editor
-    //editor.getModel();
+      // Set the language of the editor
+      try {
+        const model = editor.getModel();
+        monaco.editor.setModelLanguage(model, fileExtension);
+      } catch (error) {
+        console.log("Error setting language:", error);
+      }
 
-    try {
-      editor.setModelLanguage(text, `${fileExtension}`);
+      // Set the file content to the editor
+      editor.setValue(fileContent);
+    } else {
+      // If the tab already exists, activate it
+      codePanel.parent.setActiveContentItem(codePanel);
     }
-    catch {
-      console.log("Unreadable");
-    }
-
-
-    // set the file content to the editor
-    editor.setValue(fileContent);
-
-
-
-
   } else {
     console.error("No mainCodePanel found");
   }
@@ -217,9 +218,6 @@ function backClicked() {
   }
 }
 
-function getFileContent(path) {
-  return "test";
-}
 
 function getFileContent(path) {
   return new Promise((resolve, reject) => {

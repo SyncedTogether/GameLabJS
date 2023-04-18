@@ -5,3 +5,4 @@ window.addEventListener("resize", function () {
   // Needs to be called twice because of weird bug with GoldenLayout
   myLayout.updateSize();
 });
+
