@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="styles/components/button.css" />
   <link rel="stylesheet" href="styles/components/scrollbar.css" />
   <link rel="stylesheet" href="styles/components/header.css" />
+  <link rel="stylesheet" href="styles/components/modal.css" />
   <link rel="stylesheet" href="styles/panels/asset-panel.css" />
   <link rel="stylesheet" href="styles/panels/code-panel.css" />
   <link rel="stylesheet" href="styles/panels/preview-panel.css" />
@@ -59,6 +60,25 @@
       <!-- Body -->
       <div id="layout-container"></div>
     </div>
+
+    <!-- Home Modal -->
+    <div id="home-modal" class="modal">
+      <div class="modal-content">
+        <div class="home-header">
+          <img src="assets/banner.png" alt="GameLabsJS Banner" class="home-banner" />
+          <h3>Local Development Game Engine for Javascript</h3>
+        </div>
+        <div class="home-menu">
+          <button class="home-button">Getting Started</button>
+          <button class="home-button">Documentation</button>
+          <button class="home-button">Examples</button>
+          <button class="home-button">Contribute</button>
+          <button class="home-button">Community</button>
+        </div>
+      </div>
+    </div>
+
+
     <!-- Client Side Script References -->
     <script src="js/rq.js"></script>
     <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>

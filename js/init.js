@@ -36,6 +36,7 @@ let homeButton = null;
 let newProjectButton = null;
 let saveProjectButton = null;
 let projectSettingsButton = null;
+let homeModal = null;
 const bgPatterSize = 10;
 
 // DOM Elements added into Golden Layout don't immediately get added to the DOM
@@ -54,7 +55,8 @@ function StaggeredDOMInit() {
   newProjectButton = document.getElementById("new-project-button");
   saveProjectButton = document.getElementById("save-project-button");
   projectSettingsButton = document.getElementById("project-settings-button");
-
+  homeModal = document.getElementById("home-modal");
+  homeModal.style.display = 'block';
   initListeners();
   initPreviewPanel();
 }

@@ -7,8 +7,16 @@ window.addEventListener("resize", function () {
 });
 
 function initListeners() {
-  homeButton.addEventListener("click", function () {
-    displayHomeScreen();
+  // Show the modal when the home button is clicked
+  homeButton.addEventListener('click', () => {
+    homeModal.style.display = 'block';
+  });
+
+  // Hide the modal when the user clicks outside the modal content
+  window.addEventListener('click', (event) => {
+    if (event.target === homeModal) {
+      homeModal.style.display = 'none';
+    }
   });
 
   newProjectButton.addEventListener("click", function () {
