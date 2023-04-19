@@ -107,6 +107,27 @@ document.addEventListener("DOMContentLoaded", function () {
     container.editor = editor;
   });
 
+  // * Graph Panel Component
+  myLayout.registerComponent("graphPanel", function (container, componentState) {
+    const graphContainer = document.createElement("div");
+    graphContainer.classList.add("graph-container");
+    container.getElement().append(graphContainer);
+
+    const graph = new LiteGraph.LGraph();
+    const graphCanvas = new LiteGraph.LGraphCanvas(graphContainer, graph);
+
+    container.on("resize", () => {
+      graphCanvas.resize();
+    });
+
+    container.on("destroy", () => {
+      graphCanvas.clear();
+    });
+
+    container.graph = graph;
+    container.graphCanvas = graphCanvas;
+  });
+
   myLayout.on("initialised", function () {
     StaggeredDOMInit();
   });

@@ -18,16 +18,15 @@
 
   <!-- Monaco Editor Dependencies -->
   <link rel="stylesheet" data-name="vs/editor/editor.main"
-    href="../node_modules/monaco-editor/min/vs/editor/editor.main.css" />
+    href="node_modules/monaco-editor/min/vs/editor/editor.main.css" />
 
   <!-- JS Tree Dependencies  -->
   <link rel="stylesheet" href="styles/tree/jstree.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
 
   <!-- LiteGraph.js dependencies -->
-  <script src="https://cdn.jsdelivr.net/npm/litegl@0.4.5/build/litegl.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/litegraph.js@0.7.9/build/litegraph.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litegraph.js@0.7.9/css/litegraph.css">
+  <script src="node_modules/litegraph.js/build/litegraph.js"></script>
+  <link rel="stylesheet" href="node_modules/litegraph.js/css/litegraph.css" />
 
   <!-- Style Sheet Dependencies -->
   <link rel="stylesheet" href="styles/root.css" />
@@ -90,15 +89,16 @@
 
 
     <!-- Client Side Script References -->
-    <script src="js/rq.js"></script>
+    <script>
+      var require = { paths: { vs: "../node_modules/monaco-editor/min/vs" } };
+    </script>
     <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
     <script src="../node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
     <script src="../node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
     <script src="js/layout.js"></script>
     <script src="js/init.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/asset-panel.js"></script>
-    <script src="js/preview-panel.js"></script>
+    <script src="js/panels/asset-panel.js"></script>
+    <script src="js/panels/preview-panel.js"></script>
     <script src="js/tree.js"></script>
     <script src="js/listeners.js"></script>
   </div>
