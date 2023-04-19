@@ -75,4 +75,3 @@ function StaggeredDOMInit() {
   initListeners();
   initPreviewPanel();
 }
-
