@@ -24,7 +24,7 @@ git clone https://github.com/SyncedTogether/GameLabJS
 node app.js (will be changed to npm start in future versions)
 
 
-For a more detailed guide on how to use GameLabsJS, check out our [Getting Started](docs/getting-started.md) (WIP) guide and the [Wiki](https://github.com/SyncedTogether/GameLabsJS/wiki) (WIP).
+For a more detailed guide on how to use GameLabsJS, check out our [Getting Started](docs/getting-started.md) (WIP) guide and the [Wiki](https://github.com/SyncedTogether/GameLabJS/wiki) (WIP).
 
 ## 💖 Contributing
 
