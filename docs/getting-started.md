@@ -1,1 +1,1 @@
-![Construction Banner](assets/underconstructionbanner.png)
+![Construction Banner](underconstructionbanner.png)
