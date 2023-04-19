@@ -192,9 +192,48 @@ async function assetClicked() {
 
       // Set the file content to the editor
       editor.setValue(fileContent);
+
+
     } else {
       // If the tab already exists, activate it
       codePanel.parent.setActiveContentItem(codePanel);
+    }
+  } else {
+    console.error("No mainCodePanel found");
+  }
+}
+
+async function displayGraph() {
+  panelId = "graphPanel";
+  console.log("displayGraph: ", panelId);
+  const mainCodePanel = myLayout.root.getItemsById("mainCodePanel")[0];
+
+  if (mainCodePanel) {
+    // Check if a tab with the same ID already exists
+    let graphPanel = myLayout.root.getItemsById(panelId)[0];
+
+    if (!graphPanel) {
+      // If the tab does not exist, create it
+      mainCodePanel.parent.addChild({
+        type: "component",
+        componentName: "graphPanel",
+        title: panelId,
+        id: panelId,
+      });
+
+      // Get the newly created graph panel component
+      graphPanel = myLayout.root.getItemsById(panelId)[0];
+
+      // Get the LiteGraph instance
+      const graph = graphPanel.container.graph;
+      const graphCanvas = graphPanel.container.graphCanvas;
+      console.log("graph:", graph);
+      console.log("graphCanvas:", graphCanvas);
+
+      // The graph is empty, no need to load data
+    } else {
+      // If the tab already exists, activate it
+      graphPanel.parent.setActiveContentItem(graphPanel);
     }
   } else {
     console.error("No mainCodePanel found");

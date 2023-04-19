@@ -113,8 +113,12 @@ document.addEventListener("DOMContentLoaded", function () {
     graphContainer.classList.add("graph-container");
     container.getElement().append(graphContainer);
 
+    const graphCanvasElement = document.createElement("canvas");
+    graphCanvasElement.classList.add("graph-canvas");
+    graphContainer.appendChild(graphCanvasElement);
+
     const graph = new LiteGraph.LGraph();
-    const graphCanvas = new LiteGraph.LGraphCanvas(graphContainer, graph);
+    const graphCanvas = new LiteGraph.LGraphCanvas(graphCanvasElement, graph);
 
     container.on("resize", () => {
       graphCanvas.resize();
@@ -127,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
     container.graph = graph;
     container.graphCanvas = graphCanvas;
   });
+
 
   myLayout.on("initialised", function () {
     StaggeredDOMInit();
