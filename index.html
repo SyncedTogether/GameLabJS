@@ -10,21 +10,23 @@
   <!-- JQUERY -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- Golden Layout References -->
+  <!-- Golden Layout Dependencies -->
   <script type="text/javascript" src="https://golden-layout.com/files/latest/js/goldenlayout.min.js"></script>
   <link type="text/css" rel="stylesheet" href="https://golden-layout.com/files/latest/css/goldenlayout-base.css" />
   <link type="text/css" rel="stylesheet"
     href="https://golden-layout.com/files/latest/css/goldenlayout-dark-theme.css" />
 
-  <!-- Monaco Editor Refrences -->
+  <!-- Monaco Editor Dependencies -->
   <link rel="stylesheet" data-name="vs/editor/editor.main"
     href="../node_modules/monaco-editor/min/vs/editor/editor.main.css" />
 
-  <!-- JS Tree Rreferences -->
+  <!-- JS Tree Dependencies  -->
   <link rel="stylesheet" href="styles/tree/jstree.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
 
-  <!-- Style Sheet References -->
+  <!--  -->
+
+  <!-- Style Sheet Dependencies -->
   <link rel="stylesheet" href="styles/root.css" />
   <link rel="stylesheet" href="styles/components/button.css" />
   <link rel="stylesheet" href="styles/components/scrollbar.css" />
@@ -71,15 +73,14 @@
           </div>
         </div>
         <div class="home-menu">
-          <button class="home-button">🚀 Getting Started</button>
-          <button class="home-button">📚 Documentation</button>
-          <button class="home-button">🎨 Examples</button>
-          <button class="home-button">💖 Contribute</button>
-          <button class="home-button">💬 Community</button>
+          <button class="home-button" id="getting-started-button">🚀 Getting Started</button>
+          <button class="home-button" id="documentation-button">📚 Documentation</button>
+          <button class="home-button" id="contribute-button">💖 Contribute</button>
+          <button class="home-button" id="community-button">💬 Community</button>
         </div>
         <div class="home-buttons">
-          <button class="home-button" id="create-local-project">🔨 Create Project</button>
-          <button class="home-button" id="create-labenv-project">📂 Open Project</button>
+          <button class="home-button main-button" id="create-project">🔨 Create Project</button>
+          <button class="home-button main-button" id="open-project">📂 Open Project</button>
         </div>
       </div>
     </div>

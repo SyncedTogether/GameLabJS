@@ -36,4 +36,48 @@ function initListeners() {
       showProjectSettings();
     }
   });
+
+  gettingStartedButton.addEventListener("click", function () {
+    window.open("https://github.com/SyncedTogether/GameLabJS/blob/main/docs/getting-started.md", "_blank");
+  });
+
+  documentationButton.addEventListener("click", function () {
+    winwdow.open("https://github.com/SyncedTogether/GameLabJS/wiki", "_blank");
+  });
+
+  contributeButton.addEventListener("click", function () {
+    window.open("https://github.com/SyncedTogether/GameLabJS/blob/main/docs/contributing.md", "_blank");
+  });
+
+  communityButton.addEventListener("click", function () {
+    window.open("https://discord.gg/MbVE9ujcFt", "_blank");
+  });
+
+  createProject.addEventListener("click", function () {
+    createNewProject();
+  });
+
+  openProject.addEventListener("click", function () {
+    openExistingProject();
+  });
+}
+
+function saveProject() {
+  //throw function not impelemented
+  console.error("saveProject() not implemented");
+}
+
+function showProjectSettings() {
+  //throw function not impelemented
+  console.error("showProjectSettings() not implemented");
+}
+
+function createNewProject() {
+  //throw function not impelemented
+  console.error("createNewProject() not implemented");
+}
+
+function openExistingProject() {
+  //throw function not impelemented
+  console.error("openExistingProject() not implemented");
 }

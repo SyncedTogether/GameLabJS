@@ -21,6 +21,7 @@ let lastMousePos = { x: 0, y: 0 };
 let panOffset = { x: 0, y: 0 };
 let zoomLevel = 1;
 let isDisplayingGrid = true;
+const bgPatterSize = 10;
 
 // Global Access to Golden Layout's DOM Elements
 let pFilePath = null;
@@ -37,7 +38,14 @@ let newProjectButton = null;
 let saveProjectButton = null;
 let projectSettingsButton = null;
 let homeModal = null;
-const bgPatterSize = 10;
+let gettingStartedButton = null;
+let documentationButton = null;
+let contributeButton = null;
+let communityButton = null;
+let createProject = null;
+let openProject = null;
+
+
 
 // DOM Elements added into Golden Layout don't immediately get added to the DOM
 // This is why we need to wait for the layout to be ready before we can access the DOM elements
@@ -57,6 +65,13 @@ function StaggeredDOMInit() {
   projectSettingsButton = document.getElementById("project-settings-button");
   homeModal = document.getElementById("home-modal");
   homeModal.style.display = 'block';
+  gettingStartedButton = document.getElementById("getting-started-button");
+  documentationButton = document.getElementById("documentation-button");
+  contributeButton = document.getElementById("contribute-button");
+  communityButton = document.getElementById("community-button");
+  createProject = document.getElementById("create-project");
+  openProject = document.getElementById("open-project");
+
   initListeners();
   initPreviewPanel();
 }
