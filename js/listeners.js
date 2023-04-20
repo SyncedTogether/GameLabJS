@@ -17,6 +17,9 @@ function initListeners() {
     if (event.target === homeModal) {
       homeModal.style.display = 'none';
     }
+    if (event.target === settingsModal) {
+      settingsModal.style.display = 'none';
+    }
   });
 
   newProjectButton.addEventListener("click", function () {
@@ -73,7 +76,7 @@ function saveProject() {
 
 function showProjectSettings() {
   //throw function not impelemented
-  console.error("showProjectSettings() not implemented");
+  settingsModal.style.display = 'block';
 }
 
 function createNewProject() {

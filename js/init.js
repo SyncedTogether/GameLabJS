@@ -39,6 +39,7 @@ let newProjectButton = null;
 let saveProjectButton = null;
 let projectSettingsButton = null;
 let homeModal = null;
+let settingsModal = null;
 let gettingStartedButton = null;
 let documentationButton = null;
 let contributeButton = null;
@@ -65,6 +66,7 @@ function StaggeredDOMInit() {
   saveProjectButton = document.getElementById("save-project-button");
   projectSettingsButton = document.getElementById("project-settings-button");
   homeModal = document.getElementById("home-modal");
+  settingsModal = document.getElementById("settings-modal");
   homeModal.style.display = 'block';
   gettingStartedButton = document.getElementById("getting-started-button");
   documentationButton = document.getElementById("documentation-button");

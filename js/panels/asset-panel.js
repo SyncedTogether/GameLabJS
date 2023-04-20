@@ -2,8 +2,10 @@ $(document).ready(function () {
   // Add event handlers
   $("#content-section").on("click", ".new-folder", createNewFolder);
   $("#content-section").on("click", ".add-item", addNewFile);
+  $("#content-section").on("click", ".add-item", createNewSprite);
   $("#content-section").on("dblclick", ".folder-item.folder", folderClicked);
   $("#content-section").on("dblclick", ".folder-item.asset", assetClicked);
+  $("#content-section").on("dblclick", ".folder-item.sprite", spriteClicked);
   $("#back-button").click(backClicked);
 });
 
@@ -27,9 +29,9 @@ function displayFolderContents(node) {
         <div class="folder-icon">+</div>
         <p>Add File</p>
     </div>
-    <div class="folder-item create-asset">
+    <div class="folder-item create-sprite">
         <div class="folder-icon">+</div>
-        <p>Create Asset</p>
+        <p>Create Sprite</p>
     </div>
   `);
 
@@ -135,6 +137,11 @@ function addNewFile() {
 
   // Trigger the file input click event to show the file dialog
   fileInput.click();
+}
+
+function createNewSprite() {
+  // Make a pop up appear with the sprite settings
+
 }
 
 function folderClicked() {
@@ -260,7 +267,6 @@ function backClicked() {
     $("#file-tree").jstree("select_node", parentNode.id); // Select the parent folder node
   }
 }
-
 
 function getFileContent(path) {
   return new Promise((resolve, reject) => {
