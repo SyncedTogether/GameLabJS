@@ -17,6 +17,7 @@ const modes = {
 let editMode = modes.PAN;
 let mouseDown = false;
 let isPanning = false;
+let zoom = 1;
 let lastMousePos = { x: 0, y: 0 };
 let panOffset = { x: 0, y: 0 };
 let zoomLevel = 1;

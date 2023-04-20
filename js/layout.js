@@ -39,15 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
     container.getElement().html(
       `<div class="preview-container" id="preview-container-id">
       <div class="preview-toolbar">
-      <button class="icon-btn" id="select-btn">
-        <img src="imgs/cursor.png" alt="Play Icon" class="icon" />
-      </button>
-      <button class="icon-btn" id="pan-btn">
-        <img src="imgs/pan.png" alt="Play Icon" class="icon" />
-      </button>
-      <button class="icon-btn" id="zoom-btn">
-        <img src="imgs/zoom.png" alt="Play Icon" class="icon" />
-      </button>
       <button id="toggle-grid">Toggle Grid</button>
     </div>
     <div class="canvas-container">

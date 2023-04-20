@@ -79,7 +79,7 @@ function initSceneListeners() {
     if (isPanning) {
       offsetPanX = e.clientX - startPanX;
       offsetPanY = e.clientY - startPanY;
-      canvas.style.transform = `translate(${offsetPanX}px, ${offsetPanY}px)`;
+      canvas.style.transform = `translate(${offsetPanX}px, ${offsetPanY}px) scale(${zoom})`;
     }
   });
 
@@ -89,6 +89,17 @@ function initSceneListeners() {
 
   backgroundCanvas.addEventListener("mouseleave", (e) => {
     isPanning = false;
+  });
+
+  backgroundCanvas.addEventListener("wheel", (e) => {
+    e.preventDefault();
+
+    const zoomSpeed = 0.1;
+    zoom += e.deltaY < 0 ? zoomSpeed : -zoomSpeed;
+
+    zoom = Math.min(Math.max(zoom, 0.1), 15);
+
+    canvas.style.transform = `translate(${offsetPanX}px, ${offsetPanY}px) scale(${zoom})`;
   });
 
   canvas.addEventListener("mousedown", (e) => {
@@ -101,7 +112,7 @@ function initSceneListeners() {
     if (isPanning) {
       offsetPanX = e.clientX - startPanX;
       offsetPanY = e.clientY - startPanY;
-      canvas.style.transform = `translate(${offsetPanX}px, ${offsetPanY}px)`;
+      canvas.style.transform = `translate(${offsetPanX}px, ${offsetPanY}px) scale(${zoom})`;
     }
   });
 
@@ -113,14 +124,22 @@ function initSceneListeners() {
     isPanning = false;
   });
 
+  canvas.addEventListener("wheel", (e) => {
+    e.preventDefault();
+
+    const zoomSpeed = 0.1;
+    zoom += e.deltaY < 0 ? zoomSpeed : -zoomSpeed;
+
+    zoom = Math.min(Math.max(zoom, 0.1), 15);
+
+    canvas.style.transform = `translate(${offsetPanX}px, ${offsetPanY}px) scale(${zoom})`;
+  });
+
   propertiesPanelHandle.addEventListener("click", () => {
-    // Check if the properties panel is hidden or visible
     const isHidden = propertiesPanel.style.right === "-200px";
 
-    // Set the right property to show or hide the panel
     propertiesPanel.style.right = isHidden ? "0px" : "-200px";
 
-    // Rotate the handle arrow based on the panel's visibility
     propertiesPanelHandle.innerHTML = isHidden ? "&#x25B6;" : "&#x25C0;";
   });
 
