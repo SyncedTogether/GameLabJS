@@ -21,7 +21,11 @@ function initListeners() {
 
   newProjectButton.addEventListener("click", function () {
     if (filePath) {
-      window.location.reload();
+      // Ask the user if they want to create a new project, unsaved changes will be lost
+      const result = confirm("Are you sure you want to create a new project? Any unsaved changes will be lost.");
+      if (result) {
+        window.location.reload();
+      }
     }
   });
 

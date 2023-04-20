@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+  initPreviewPanel();
   initSceneListeners();
+  centerCanvas();
 });
 
 function initPreviewPanel() {
@@ -37,16 +39,35 @@ function drawBackgroundCanvas() {
 function drawSceneCanvas() {
   canvas.width = 100;
   canvas.height = 100;
-  ctx.fillStyle = "#FF0000";
+  ctx.fillStyle = "#FFFFFF";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
+function centerCanvas() {
+  const containerWidth = previewContainer.clientWidth;
+  const containerHeight = previewContainer.clientHeight;
+
+  const canvasWidth = canvas.width;
+  const canvasHeight = canvas.height;
+
+  const x = (containerWidth - canvasWidth) / 2;
+  const y = (containerHeight - canvasHeight) / 2;
+
+  canvas.style.transform = `translate(${x}px, ${y}px)`;
+}
+
 function initSceneListeners() {
-  console.log("initSceneListeners");
-  let startPanX = 0;
-  let startPanY = 0;
-  let offsetPanX = 0;
-  let offsetPanY = 0;
+  const containerWidth = previewContainer.clientWidth;
+  const containerHeight = previewContainer.clientHeight;
+
+  const canvasWidth = canvas.width;
+  const canvasHeight = canvas.height;
+
+  // start pan from center of canvas
+  let startPanX = (containerWidth - canvasWidth) / 2;
+  let startPanY = (containerHeight - canvasHeight) / 2;
+  let offsetPanX = startPanX;
+  let offsetPanY = startPanY;
 
   backgroundCanvas.addEventListener("mousedown", (e) => {
     isPanning = true;

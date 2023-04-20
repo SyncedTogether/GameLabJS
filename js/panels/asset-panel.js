@@ -24,9 +24,13 @@ function displayFolderContents(node) {
       <p>New Folder</p>
     </div>
     <div class="folder-item add-item">
-          <div class="folder-icon">+</div>
-          <p>Add File</p>
-      </div>
+        <div class="folder-icon">+</div>
+        <p>Add File</p>
+    </div>
+    <div class="folder-item create-asset">
+        <div class="folder-icon">+</div>
+        <p>Create Asset</p>
+    </div>
   `);
 
   node.children.forEach(function (childId) {
