@@ -6,7 +6,6 @@ const multer = require("multer");
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Configure multer storage to save files using their original names and extensions
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/");
@@ -16,7 +15,6 @@ const storage = multer.diskStorage({
   },
 });
 
-// Use the configured storage in the multer instance
 const upload = multer({ storage: storage });
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,7 +29,6 @@ app.post("/upload", upload.single("file"), (req, res) => {
   if (!req.file) {
     return res.status(400).send("No file uploaded");
   }
-  // Send the file's id, text, and path to the client
   res.status(200).json({ id: req.file.filename, text: req.file.originalname, data: { path: req.file.path } });
 });
 
