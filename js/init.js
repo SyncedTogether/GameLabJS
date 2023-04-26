@@ -46,6 +46,8 @@ let contributeButton = null;
 let communityButton = null;
 let createProject = null;
 let openProject = null;
+let huePicker = null;
+let saturationRangePicker = null;
 
 
 

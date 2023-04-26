@@ -1,16 +1,19 @@
 :root {
+  --hue: 210;
+  --saturation: 5%;
+
   --border-width: 3px;
-  --border-color: #1a1a1a;
+  --border-color: hsl(var(--hue), var(--saturation), 10%);
 
-  --background-color: #151515;
+  --background-color: hsl(var(--hue), var(--saturation), 8%);
   --foreground-color: white;
-  --secondary-color: #444;
-  --third-color: #343434;
-  --fourth-color: #2a2a2a;
+  --secondary-color: hsl(var(--hue), var(--saturation), 27%);
+  --third-color: hsl(var(--hue), var(--saturation), 20%);
+  --fourth-color: hsl(var(--hue), var(--saturation), 16%);
 
-  --button-color: #1a1a1a;
-  --button-hover-color: #2a2a2a;
-  --button-active-color: #363636;
+  --button-color: hsl(var(--hue), var(--saturation), 10%);
+  --button-hover-color: hsl(var(--hue), var(--saturation), 16%);
+  --button-active-color: hsl(var(--hue), var(--saturation), 21%);
 
   --header-height: 35px;
 }
